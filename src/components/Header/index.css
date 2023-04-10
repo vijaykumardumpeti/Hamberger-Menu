@@ -1,0 +1,29 @@
+/* Write your CSS here */
+.header-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  min-width: 600px;
+
+  text-decoration: underline;
+}
+
+@media all and (max-width: 767px) {
+  .header-container {
+    width: 250px;
+  }
+}
+.line {
+  width: 1000px;
+}
+.web-logo {
+  height: 40px;
+}
+.trigger-button {
+  background-color: transparent;
+  border: 0px none transparent;
+  font-size: 30px;
+}
