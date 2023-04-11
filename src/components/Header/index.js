@@ -1,39 +1,65 @@
+// Write your code here
 import Popup from 'reactjs-popup'
+import {withRouter, Link} from 'react-router-dom'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import {IoMdClose} from 'react-icons/io'
-
-import {Component} from 'react'
+import {AiFillHome} from 'react-icons/ai'
+import {BsInfoCircleFill} from 'react-icons/bs'
 
 import './index.css'
 
-const Header = () => {
-  let icon =  <GiHamburgerMenu />
-  return (
-    <div className="header-container">
-      <img
-        className="web-logo"
-        alt="website logo"
-        src="https://assets.ccbp.in/frontend/react-js/hamburger-menu-website-logo.png"
-      />
-      <div className="popup-container">
-        <Popup
-          modal
-          trigger={
-            <button type="button" className="trigger-button">
-             {icon}
+const Header = () => (
+  <div className="nav-header">
+    <div className="nav-content">
+      <Link to="/">
+        <img
+          className="website-logo"
+          src="https://assets.ccbp.in/frontend/react-js/hamburger-menu-website-logo.png"
+          alt="website logo"
+        />
+      </Link>
+      <Popup
+        modal
+        trigger={
+          <button
+            className="hamburger-icon-button"
+            type="button"
+            data-testid="hamburgerIconButton"
+          >
+            <GiHamburgerMenu size="30" />
+          </button>
+        }
+        className="popup-content"
+      >
+        {close => (
+          <div className="modal-container">
+            <button
+              className="close-button"
+              type="button"
+              data-testid="closeButton"
+              onClick={() => close()}
+            >
+              <IoMdClose size="30" color="#616e7c" />
             </button>
-            {icon = <IoMdClose/>}
-          }
-        >
-          <>
-            <div>
-              <p>React is a popular and widely used programming language</p>
-            </div>
-          </>
-        </Popup>
-      </div>
+            <ul className="nav-links-list">
+              <li className="nav-link-item">
+                <Link className="nav-link" to="/" onClick={() => close()}>
+                  <AiFillHome size="36" />
+                  <p className="nav-link-content">Home</p>
+                </Link>
+              </li>
+              <li className="nav-link-item">
+                <Link className="nav-link" to="/about" onClick={() => close()}>
+                  <BsInfoCircleFill size="32" />
+                  <p className="nav-link-content">About</p>
+                </Link>
+              </li>
+            </ul>
+          </div>
+        )}
+      </Popup>
     </div>
-  )
-}
+  </div>
+)
 
-export default Header
+export default withRouter(Header)
