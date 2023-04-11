@@ -1,6 +1,6 @@
 // Write your code here
 import Popup from 'reactjs-popup'
-import {withRouter, Link} from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import {IoMdClose} from 'react-icons/io'
 import {AiFillHome} from 'react-icons/ai'
@@ -62,4 +62,4 @@ const Header = () => (
   </div>
 )
 
-export default withRouter(Header)
+export default Header
